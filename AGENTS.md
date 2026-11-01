@@ -1,6 +1,6 @@
 ---
 created_on: 2026-10-29 12:51
-last_modified: 2026-10-29 13:05
+last_modified: 2026-11-01 09:51
 status: current
 ---
 
@@ -23,7 +23,7 @@ Synchronize repositories and finish quiet changes with bounded agent assistance
 
 ## Conventions
 - **Output Formatting & No Decorative Headers:** All CLI output must be plain text without emojis across all modes.
-- **Help Screens & Terminal Width:** CLI help output (`--help`) must display an aligned hierarchical tree view with `├─` and `╰─` glyphs powered by `github.com/alexgorbatchev/cobra-help-tree/v2` (`cobrahelptree.Setup(rootCmd)`), with command descriptions automatically trimmed to the terminal width using ellipsis (`...`).
+- **Help Screens & Terminal Width:** CLI help output (`--help`) must display an aligned hierarchical tree view with `├─` and `╰─` glyphs powered by `github.com/alexgorbatchev/cobra-help-tree/v2` (`cobrahelptree.Setup(rootCmd)`), with long help text wrapped to the terminal width and never truncated.
 - **Agent Mode (`AGENT=1`):** When `AGENT=1` is set, output compact key-value pairs or bullets.
 - **Hermetic Unit Tests:** All unit tests must remain 100% offline and hermetic.
 
