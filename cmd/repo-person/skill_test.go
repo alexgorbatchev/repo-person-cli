@@ -13,6 +13,15 @@ import (
 	"github.com/spf13/pflag"
 )
 
+const skillContent = `Install the repo-person skill using the Skills CLI:
+
+  npx skills add alexgorbatchev/repo-person-cli --skill repo-person
+
+Skill:
+
+  https://github.com/alexgorbatchev/repo-person-cli/tree/main/skills/repo-person
+`
+
 const skillAlert = "ALERT: Agents must read `AGENT=1 repo-person skill` before using this tool.\n"
 
 func TestSkillCommand(t *testing.T) {

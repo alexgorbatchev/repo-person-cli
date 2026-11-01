@@ -1,10 +1,7 @@
 package main
 
 import (
-	"fmt"
-
-	cobrahelptree "github.com/alexgorbatchev/cobra-help-tree/v2"
-	"github.com/alexgorbatchev/repo-person-cli/internal/agent"
+	cobrahelptree "github.com/alexgorbatchev/cobra-help-tree/v4"
 	"github.com/spf13/cobra"
 )
 
@@ -18,15 +15,6 @@ var techCatalog = cobrahelptree.TechCatalog{
 func setupHelp(cmd *cobra.Command) {
 	_ = cobrahelptree.SetupWithOptions(cmd, cobrahelptree.HelpOptions{
 		Catalog: techCatalog,
-	})
-	help := cmd.HelpFunc()
-	cmd.SetHelpFunc(func(c *cobra.Command, args []string) {
-		if agent.IsAgentMode() {
-			if _, err := fmt.Fprintln(c.OutOrStdout(), "ALERT: Agents must read `AGENT=1 repo-person skill` before using this tool."); err != nil {
-				c.PrintErrln(err)
-				return
-			}
-		}
-		help(c, args)
+		Skill:   cobrahelptree.SkillSource{Repository: "alexgorbatchev/repo-person-cli", Branch: "main"},
 	})
 }

@@ -55,7 +55,6 @@ func newRootCommand() *cobra.Command {
 		}
 		root.AddCommand(cmd)
 	}
-	root.AddCommand(newSkillCommand())
 	setupHelp(root)
 	return root
 }
