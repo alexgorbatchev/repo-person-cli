@@ -1,0 +1,1 @@
+{"type":"object","properties":{"status":{"type":"string","enum":["committed","failed"]},"summary":{"type":"string"},"checks":{"type":"array","items":{"type":"string"}},"repairs":{"type":"string"},"remaining":{"type":"string"}},"required":["status","summary","checks","repairs","remaining"],"additionalProperties":false}
