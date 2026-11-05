@@ -23,17 +23,16 @@ jobs:
       - name: Check module hygiene
         run: go mod tidy -diff
 
+      - uses: extractions/setup-just@v4
+
       - name: Build
         run: go build ./...
 
       - name: Vet
         run: go vet ./...
 
-      - name: Test
-        run: go test -race -coverprofile=coverage.out ./...
-
-      - name: Check coverage
-        run: bash scripts/check-coverage.sh
+      - name: Test and check coverage
+        run: just coverage
 
   release:
     needs: verify

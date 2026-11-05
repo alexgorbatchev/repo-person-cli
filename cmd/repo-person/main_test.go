@@ -75,6 +75,8 @@ func TestRootCommand_HelpAndVersion(t *testing.T) {
 func TestOperations(t *testing.T) {
 	t.Setenv("GIT_CONFIG_GLOBAL", "/dev/null")
 	t.Setenv("GIT_CONFIG_NOSYSTEM", "1")
+	// Fixtures under the checkout must not discover its enclosing repository.
+	t.Setenv("GIT_CEILING_DIRECTORIES", os.TempDir())
 	t.Setenv("XDG_STATE_HOME", t.TempDir())
 	repo := t.TempDir()
 	for _, args := range [][]string{{"init", "-q", "-b", "main"}, {"config", "user.name", "Test"}, {"config", "user.email", "test@example.com"}} {

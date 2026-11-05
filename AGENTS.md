@@ -1,6 +1,6 @@
 ---
 created_on: 2026-10-29 12:51
-last_modified: 2026-11-01 09:51
+last_modified: 2026-11-04 22:59
 status: current
 ---
 
@@ -12,7 +12,7 @@ Synchronize repositories and finish quiet changes with bounded agent assistance
 - **Build Local Binary:** `just build` (compiles to `bin/repo-person`)
 - **Run CLI with Arguments:** `just run [args...]`
 - **Run CLI in Agent Mode:** `just run-ai [args...]` (`AGENT=1`)
-- **Run Tests:** `just test` (`go test -race -coverprofile=coverage.out ./...`)
+- **Run Tests:** `just test` (`go test -race -cover ./...`); `just coverage` runs race tests and enforces coverage using a unique `.tmp/` child, removed after success, failure, or interruption.
 - **Run Static Analysis & Tests:** `just check` (module hygiene, vet, race tests, and the 90% coverage gate)
 - **Run Linter / Static Analysis:** `just vet` or `just lint` (`go vet ./...`)
 - **Format Source Code:** `just fmt` (`go fmt ./...`)

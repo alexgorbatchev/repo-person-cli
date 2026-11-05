@@ -18,7 +18,7 @@ run-ai *args:
 
 # Run test suite
 test:
-    go test -race -coverprofile=coverage.out ./...
+    go test -race -cover ./...
 
 # Build binary into bin/
 build:
@@ -44,13 +44,12 @@ fmt:
 check:
     go mod tidy -diff
     go vet ./...
-    go test -race -coverprofile=coverage.out ./...
-    bash scripts/check-coverage.sh
+    just coverage
 
-# Enforce statement coverage after tests
+# Run race tests and enforce statement coverage with disposable per-run storage
 coverage:
     bash scripts/check-coverage.sh
 
-# Clean up build binaries and temporary files
+# Clean build and coverage outputs
 clean:
-    rm -rf bin coverage.out .tmp dist
+    rm -rf bin coverage.out dist

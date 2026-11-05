@@ -12,6 +12,7 @@ import (
 )
 
 func TestInvalidRepositories(t *testing.T) {
+	t.Setenv("GIT_CEILING_DIRECTORIES", os.TempDir())
 	ctx := context.Background()
 	bad := t.TempDir()
 	c := defaults()

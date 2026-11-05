@@ -19,6 +19,8 @@ jobs:
         with:
           go-version-file: 'go.mod'
 
+      - uses: extractions/setup-just@v4
+
       - name: Check module hygiene
         run: go mod tidy -diff
 
@@ -28,8 +30,5 @@ jobs:
       - name: Vet
         run: go vet ./...
 
-      - name: Test
-        run: go test -race -coverprofile=coverage.out ./...
-
-      - name: Check coverage
-        run: bash scripts/check-coverage.sh
+      - name: Test and check coverage
+        run: just coverage
