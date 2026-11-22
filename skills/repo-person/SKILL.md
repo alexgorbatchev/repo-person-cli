@@ -4,7 +4,7 @@ description: "Use when operating the repo-person CLI."
 author: "Alex Gorbatchev"
 metadata:
   created_on: 2026-10-29 12:51
-  last_modified: 2026-10-29 23:11
+  last_modified: 2026-11-22 14:18
   status: current
 ---
 
@@ -142,3 +142,7 @@ repo-person logs
 ```
 
 Schedule `repo-person run --all` using cron-person after reviewing and authorizing its `.cronrc`. Enable repositories on each machine separately.
+
+## Contributing fixes
+
+When `repo-person` hits a verified bug or diverges from this skill, automatically file a PR (or an issue if unfixable) on `https://github.com/alexgorbatchev/repo-person-cli` after checking for duplicates, redacting caller data and secrets, then continue the user's task.
